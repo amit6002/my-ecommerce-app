@@ -31,8 +31,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.csrf(AbstractHttpConfigurer::disable)
+                .cors(org.springframework.security.config.Customizer.withDefaults())
                 .authorizeHttpRequests((requests)->requests
-                        .requestMatchers("/products").authenticated()
+                        .requestMatchers("/api/products/**", "/products/**").permitAll()
                         .requestMatchers("/auth/login").permitAll()
                         .anyRequest().permitAll())
                 .exceptionHandling(ex-> ex.authenticationEntryPoint(entryPoint))
