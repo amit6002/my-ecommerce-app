@@ -4,9 +4,9 @@ import { toast } from "react-toastify";
 import basketService from "./basketService";
 import { Dispatch } from "redux";
 import { Product } from "../models/product";
-import { Basket } from "../models/basket";
+import type { Basket } from "../models/basket";
 
-axios.defaults.baseURL ='http://localhost:8081/api/';
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8081/api/';
 
 const idle = () => new Promise(resolve => setTimeout(resolve, 100));
 const responseBody = (response: AxiosResponse) => response.data;
