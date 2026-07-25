@@ -38,8 +38,16 @@ const requests = {
     delete: (url: string) =>axios.put(url).then(responseBody)
 }
 
+const getApiUrl = () => {
+    const base = import.meta.env.VITE_API_URL || 'http://localhost:8081/api/';
+    const cleanBase = base.endsWith('/') ? base : `${base}/`;
+    return `${cleanBase}products`;
+};
+
 const Store = {
-    apiUrl: 'http://localhost:8081/api/products',
+    get apiUrl() {
+        return getApiUrl();
+    },
     list:(page: number, size: number, brandId?: number, typeId?: number, url?: string)=> {
       let requestUrl = url || `products?page=${page-1}&size=${size}`;
       if(brandId!==undefined){
