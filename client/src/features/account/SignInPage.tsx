@@ -88,12 +88,12 @@ export default function SignInPage(){
               </LoadingButton>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link to="#" style={{ textDecoration: 'none', color: '#1976d2', fontSize: '0.875rem' }}>
                     Forgot password?
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="/register" variant="body2">
+                  <Link to="/register" style={{ textDecoration: 'none', color: '#1976d2', fontSize: '0.875rem' }}>
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

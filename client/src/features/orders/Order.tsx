@@ -2,10 +2,10 @@ import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody
 import { useEffect, useState } from "react";
 import agent from "../../app/api/agent";
 import Spinner from "../../app/layout/Spinner";
-import { Order } from "../../app/models/order";
+import type { Order as OrderType } from "../../app/models/order";
 
 export default function Order(){
-    const [orders, setOrders] = useState<Order[] | null>(null);
+    const [orders, setOrders] = useState<OrderType[] | null>(null);
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {        
